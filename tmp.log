@@ -1,0 +1,58 @@
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.euc) (TeX Live 2025) (preloaded format=platex 2026.1.6)  20 JAN 2026 23:48
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**tmp.tex
+(./tmp.tex
+pLaTeX2e <2023-02-14>+1, based on
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-29>
+(/usr/local/texlive/2025/texmf-dist/tex/platex/base/jarticle.cls
+Document Class: jarticle 2020/09/30 v1.8f Standard pLaTeX class
+\c@@paper=\count274
+(/usr/local/texlive/2025/texmf-dist/tex/platex/base/jsize10.clo
+File: jsize10.clo 2020/09/30 v1.8f Standard pLaTeX file (size option)
+)
+\c@part=\count275
+\c@section=\count276
+\c@subsection=\count277
+\c@subsubsection=\count278
+\c@paragraph=\count279
+\c@subparagraph=\count280
+\c@figure=\count281
+\c@table=\count282
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\symmincho=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 615.
+\toclineskip=\dimen164
+\@lnumwidth=\dimen165
+\bibindent=\dimen166
+\heisei=\count283
+)
+
+! LaTeX Error: File `float.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: x
+
+! Emergency stop.
+<read *> 
+         
+l.3 \usepackage
+               {adrobo_abst}
+*** (cannot \read from terminal in nonstop modes)
+
+ 
+Here is how much of TeX's memory you used:
+ 301 strings out of 469647
+ 3466 string characters out of 5471264
+ 426575 words of memory out of 5000000
+ 29177 multiletter control sequences out of 15000+600000
+ 631592 words of font info for 57 fonts, out of 8000000 for 9000
+ 36 hyphenation exceptions out of 8191
+ 35i,0n,38p,143b,35s stack positions out of 10000i,1000n,20000p,200000b,200000s
+No pages of output.
