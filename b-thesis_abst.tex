@@ -16,14 +16,14 @@
     \makeatletter
     \doctype{2025年度卒業論文概要}
     \title{ラプラシアン分散を用いたコマの回転停止検出}{}
-    \etitle{Image-Based Detection of Spinning Top Stopping State Using Laplacian Varianc} {}
+    \etitle{Image-Based Detection of Spinning Top Stopping State Using @@@Using->using@@@ Laplacian Varianc@@@スペルミス？@@@} {}
 
     \author{22C1061\hspace{.5zw}澤田悠李}
     \eauthor{Yuri Sawada}
     
     \makeatother
     
-    \abstract{This paper proposes a method for detecting the rotational and stopping states of a spinning object using an image-based blur metric derived from the variance of the Laplacian. The Laplacian operator emphasizes high-frequency components such as edges, and its variance is widely used as an indicator of image sharpness. In this study, video frames of a spinning top are analyzed, and the temporal variation of the blur value is evaluated. Experimental results show that the blur value strongly depends on rotational speed and object posture, and that a fixed theoretical threshold does not always achieve reliable stopping detection. Based on these observations, we discuss the limitations of purely theory-based threshold determination and the necessity of experimentally calibrated decision criteria.}
+    \abstract{This paper proposes a method for detecting the rotational and stopping states of a spinning object using an image-based blur metric derived from the variance of the Laplacian @@@the Laplacian variance?@@@. The Laplacian operator emphasizes high-frequency components such as edges, @@@andじゃないような気が@@@and its variance is widely used as an indicator of image sharpness. In this study, video frames of a spinning top are analyzed, and the temporal variation of the blur value is @@@あんまよくわかってないけどvalues are?@@@evaluated. Experimental results show that the blur value strongly depends on rotational speed and object posture, and that a fixed theoretical threshold does not always achieve reliable stopping detection. Based on these observations, we discuss the limitations of purely theory-based threshold determination and the necessity of experimentally calibrated decision criteria.}
    
     \keywords{blur detection, Laplacian operator, rotation detection, computer vision}
     
@@ -37,12 +37,12 @@
 	
 	ベイブレードに関連する研究として，赤外線カメラとプロジェクタ投影を用いたタンジブルインタフェースの開発が報告されている(2)．この研究では，スタジアム上のコマ位置を検出し，視覚的な演出によって競技体験を向上させることを目的としており，コマの検出および追跡手法は本研究においても参考とした．しかし，同研究ではコマの回転状態や停止状態の判定までは行われておらず，審判機能として用いるには不十分である．
 	
-	一方，画像中のぼけ量を定量化する手法は，オートフォーカスや画質評価をはじめとして広く研究されており，特に Laplacian 演算子の分散（Variance of Laplacian）は，画像中の高周波成分を簡便に評価できる指標として知られている(1)．回転体を撮影した場合，回転速度や姿勢変化に応じて画像中のぼけ量が変化することから，この指標を用いることで回転状態の推定が可能であると考えられる．
+	一方，画像中のぼけ量を定量化する手法は，オートフォーカスや画質評価をはじめとして広く研究されており，特に Laplacian 演算子の分散（Variance of Laplacian@@@タイトルと違う@@@）は，画像中の高周波成分を簡便に評価できる指標として知られている(1)@@@手動引用じゃなくてciteを使う@@@．回転体を撮影した場合，回転速度や姿勢変化に応じて画像中のぼけ量が変化することから，この指標を用いることで回転状態の推定が可能であると考えられる．
 	
 	そこで本研究では，ベイブレードの自動審判システムの実現を最終目標として，コマの回転映像を対象に，Laplacian に基づく blur 指標を用いた回転状態および停止状態の検知手法について検討する．特に，理論的に導出した閾値と実験的に得られた閾値との差異に着目し，単一の閾値による判定の限界と，実環境における課題を明らかにすることを目的とする．
      
     \section{提案手法}%===========================
-    本研究では，各フレームをグレースケール画像に変換した後，以下の手順で blur 指標を算出する．
+    本研究では，@@@あともそうだけど、もう「本研究では」は不要です@@@各フレームをグレースケール画像に変換した後，以下の手順で blur 指標を算出する．
     \begin{enumerate}
 	    \item 入力画像をグレースケール化
 	    \item Laplacian 演算子を適用
@@ -75,6 +75,7 @@
                         \end{center}
                 \end{figure}
 	\subsection{実験1：Blur 特徴量の時系列分析}
+	@@@ここらへん段落が崩壊してます@@@
     		回転から停止までの動画を撮影し，各フレームの blur 値を算出して時系列的に分析した．
 		
 		回転停止前後における blur 値の時系列変化を図2に示す．		
@@ -86,7 +87,7 @@
 		\begin{figure}[h]
                         \begin{center}
                                 \includegraphics[width=1\linewidth]{fig/Figure_02.png}
-                                \caption{Blur around rotation stop}
+				\caption{Blur around rotation stop@@@横軸、縦軸など図中の文字はちゃんと読みやすいように大きく@@@}
                                 \label{fig:exp_negapozi}
                         \end{center}
                 \end{figure}
@@ -95,6 +96,7 @@
 		blur 値に時間窓を導入し，平均値に基づく判定を行った．これにより瞬間的な誤判定は減少したが，低速回転時の誤判定は完全には解消されなかった．
     	
 	\subsection{実験3：複数特徴量の統合}
+	@@@段落おかしいです。あと原稿に変なインデントついてて読みにくいです。原稿は構造化しないでいいです。@@@
 		blur 値に加えて，コマの位置変動および半径変動を統合した判定を行った．
 
 		傾いた停止状態や低速回転時においても停止判定が可能となった．
@@ -120,6 +122,8 @@
     また，blur 値に時間窓平均を適用することで判定の安定化は得られたものの，特徴量の分離性は改善されず，停止判定には至らなかった．一方で，位置変動や半径変動といった複数の特徴量を統合することで，実環境においても比較的安定した停止判定が可能となった．
 
 以上より，単一の画像特徴量に基づく判定には限界があり，自動審判システムの実現には複数の視覚情報を統合した判定が有効であることを示した．
+@@@ここレイアウトくずれてました@@@
+
     \vspace{5truemm}
     {\footnotesize
         \begin{thebibliography}{99}
